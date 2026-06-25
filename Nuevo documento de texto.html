@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de Satisfacción</title>
+    <style>
+        :root {
+            --sena-green: #39A900;
+            --sena-dark: #2e8700;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --bg-page: #f4f6f8;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-page);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 30px 15px;
+        }
+
+        .form-container {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 580px;
+            border-top: 6px solid var(--sena-green);
+        }
+
+        .header-section {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .header-section img {
+            max-width: 140px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .header-section h2 {
+            color: var(--text-main);
+            font-size: 24px;
+            margin: 0 0 8px 0;
+        }
+
+        .header-section p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            padding: 11px 14px;
+            border: 1px solid #cfd6dd;
+            border-radius: 6px;
+            font-size: 14px;
+            color: var(--text-main);
+            background-color: #fff;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--sena-green);
+            box-shadow: 0 0 0 3px rgba(57, 169, 0, 0.15);
+        }
+
+        .btn-submit {
+            background-color: var(--sena-green);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--sena-dark);
+        }
+
+        /* Ajuste para pantallas pequeñas */
+        @media (max-width: 500px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .form-container {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        
+        <div class="header-section">
+            <!-- Espacio del Logo -->
+            <img src="LOGOSENA.png" alt="Logo Institucional">
+            <h2>Registro de Encuesta</h2>
+            <p>Por favor diligencie los siguientes datos para continuar</p>
+        </div>
+
+        <form action="#" method="POST">
+            <div class="form-grid">
+                
+                <div class="form-group full-width">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Carlos Eduardo Martínez" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tipo_doc">Tipo de Documento *</label>
+                    <select id="tipo_doc" name="tipo_doc" required>
+                        <option value="">Seleccione...</option>
+                        <option value="CC">Cédula de Ciudadanía</option>
+                        <option value="TI">Tarjeta de Identidad</option>
+                        <option value="CE">Cédula de Extranjería</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="numero">Número de Documento *</label>
+                    <input type="number" id="numero" name="numero" placeholder="Ej. 1102938475" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico *</label>
+                    <input type="email" id="correo" name="correo" placeholder="usuario@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono / Celular *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ej. 3001234567" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="centro">Regional o Centro de Formación</label>
+                    <input type="text" id="centro" name="centro" placeholder="Ej. Centro de Electricidad y Automatización Industrial">
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="satisfaccion">¿Cómo califica la actividad realizada? *</label>
+                    <select id="satisfaccion" name="satisfaccion" required>
+                        <option value="">Seleccione una opción...</option>
+                        <option value="excelente">Excelente - Cumplió todas las expectativas</option>
+                        <option value="bueno">Bueno - Aceptable</option>
+                        <option value="regular">Regular - Puede mejorar</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-submit full-width">Continuar Encuesta</button>
+                
+            </div>
+        </form>
+
+    </div>
+
+</body>
+</html>
